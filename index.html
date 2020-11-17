@@ -41,35 +41,33 @@
 
                 <div class="field is-6">
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="text" placeholder="State">
+                        <input class="input" id="state" type="text" placeholder="State">
                         <span class="icon is-left">
-                            <i class="fas fa-globe"></i>
+                            <i class="fas fa-globe" id="trailResults"></i>
                         </span>
 
                     </div>
                 </div>
 
                 <div class="control">
-                    <button class="button is-primary">Submit</button>
+                    <button class="button is-info">Submit</button>
                 </div>
                 <article class="tile is-child box">
-                    <p class="title">Side column</p>
-                    <p class="subtitle">With some content</p>
-                    <div class="content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu
-                            pellentesque
-                            tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
-                    </div>
-                </article>
+                    <p class="title">Trail Name</p>
+                    <p class="subtitle">Trail info</p>
+                    <figure class="image is-1by-1">
+                      
+                    </figure>
+                  </article>
             </article>
         </div>
 
         <!-- Wide Tile -->
         <div class="tile is-parent is-verticle is-8">
-            <article class="tile is-child box">
-                <article class="tile is-child notification is-danger">
-                    <p class="title">Wide tile</p>
-                    <p class="subtitle">Aligned with the right tile</p>
+            <article class="tile is-child box main-area">
+                <article class="tile is-child">
+                    <p class="title">City, State??</p>
+                    <p class="subtitle">Todays weather????</p>
                     <div class="content">
                         <!-- Content -->
                     </div>
@@ -81,7 +79,7 @@
     <!-- Side Column -->
     <div class="tile is-ancestor">
 
-        <div class="tile is-parent is-8">
+        <div class="tile is-parent is-12">
             <article class="tile is-child box">
                 <p class="title">Main column</p>
                 <p class="subtitle">With some content</p>
@@ -94,20 +92,6 @@
     </div>
 
     <button id="testBtn">TESTING</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
