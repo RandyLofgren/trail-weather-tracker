@@ -1,9 +1,9 @@
 var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f"
 // var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f";
-
-
-
-
+var state = $("#state").val()
+var city = $("#city").val()
+// state = "NorthCarolina"
+city = "Charlotte"
 
 
 ///////////////////just holding onto this in case i need the URL and key
@@ -23,33 +23,50 @@ var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f"
 //  need to set the id to an HTML
 var submit = $("#submitBtn")
 
-$(".is-info").on("click", function (event) {
+$("#submitBtn").on("click", function (event) {
     event.preventDefault()
 
+    city = $("#city").val()
 
 
     $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=Charlotte,NorthCarolina&appid=93048a14e536394603a5f5173a41d761",
+        url: "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + state + "&appid=93048a14e536394603a5f5173a41d761",
         method: "GET"
     }).then(function (weather) {
-        
+
         console.log(weather)
 
         let lat = weather.coord.lat
         let long = weather.coord.lon
 
+
+
         $.ajax({
-            hikingURL: "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f",
+            url: "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=10&key=200975281-2d283bf1ff307c50113654f42a31551f",
             method: "GET"
         }).then(function (response) {
-            console.log(response)
-            for (var i = 1; i < response.trails.length; i++) {
-                var nameResp = response.trails[i].name;
-                var infoResp = response.trails[i].summary;
-                $("#name" + i).text(nameResp);
-                $("#info" + i).text(infoResp);
-               
+            // console.log(response)
 
+            // showTrail()
+
+            $("#mainTitle").text(response.trails[0].name)
+            $("#mainLocation").text(response.trails[0].location)
+            $("#mainIMG").attr("src", response.trails[0].imgSmall)
+            console.log(response)
+            console.log(response)
+            $(".trailList").empty()
+            for (var i = 1; i < response.trails.length; i++) {
+                console.log("test")
+                // var nameResp = response.trails[i].name;
+                var infoResp = response.trails[i].summary;
+                // $("#name" + i).text(nameResp);
+                $("#info" + i).text(infoResp);
+                var article = $('<article id="trailOpt' + i + '" class="tile is-child box">');
+                var newP = $('<p class="subtitle" id="name' + i + '">').text(response.trails[i].name);
+                // <div class="content">
+                var content = $('<p class="content">').text(response.trails[i].summary);
+                article.append(newP, content)
+                $(".trailList").append(article)
 
 
             };
@@ -57,36 +74,22 @@ $(".is-info").on("click", function (event) {
         })
 
     });
-})
+});
+
 
 // function to get trail data //
-
-
-
-
-
-
-
-
 // function to show hiking trail results //
 
 // var resultOfTrails = (trails[i].name);
 // var trails = data.trails;
 
-// function showTrail() {
-//     $(".trailResult").text("");
-    
-//     if (trails.length === 0) {
-//         $(".trailResult").text("Please Enter a Valid City");
-        
-//         $(".trailResult").text(resultOfTrails);
-//     }
-
-    
-
-
-
-// }
+function showTrail() {
+    $("#mainTitle").text("");
+    if (response.trails.length === 0) {
+        $("#mainTitle").text("Please Enter a Valid City");
+        // $(".trailResult").text(resultOfTrails);
+    }
+}
 
 
 

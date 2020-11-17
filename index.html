@@ -9,12 +9,15 @@
     <title>Trail Weather Tracker </title>
 </head>
 
+
+<!-- Header -->
+
 <body>
     <section class="hero is-info">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    Welcome to The Tail Weather Tracker!
+                    Welcome to The Trail Weather Tracker!
                 </h1>
                 <h2 class="subtitle">
                     Search for The weather of your favorite hiking trails. Select a State or zipcode and the dates you
@@ -25,14 +28,14 @@
         </div>
     </section>
 
-
+    <!--  -->
     <div class="tile is-ancestor">
         <div class="tile is-parent">
             <article class="tile is-child box">
                 <p>Please enter the City and State you want to find trails in</p>
                 <div class="field is-6">
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="text" placeholder="City">
+                        <input class="input" type="text" id="city" placeholder="City">
                         <span class="icon is-left">
                             <i class="fas fa-globe"></i>
                         </span>
@@ -51,16 +54,15 @@
                 </div>
 
                 <div class="control">
-                    <button class="button is-info">Submit</button>
+                    <button class="button is-info" id="submitBtn">Submit</button>
                 </div>
                 <article class="tile is-child box">
-                    <p class="title trail-name" id="name1">Trail Name</p>
-                    <p class="subtitle trail-info" id="info1">Trail info</p>
-                    <!-- <p class="trail-rating">Rating</p> -->
+                    <p class="title" id="asideTitle">Trail Name</p>
+                    <p class="subtitle" id="asideInfo">Trail info</p>
                     <figure class="image is-1by-1">
-                      
+
                     </figure>
-                  </article>
+                </article>
             </article>
         </div>
 
@@ -68,10 +70,11 @@
         <div class="tile is-parent is-verticle is-8">
             <article class="tile is-child box main-area">
                 <article class="tile is-child">
-                    <p class="title">City, State??</p>
-                    <p class="subtitle">Todays weather????</p>
+                    <p class="title" id="mainTitle">Trail Name</p>
+                    <p class="subtitle" id="mainLocation">Location</p>
                     <div class="content">
                         <!-- Content -->
+                        <img src="" id="mainIMG" alt="">
                     </div>
                 </article>
             </article>
@@ -81,55 +84,56 @@
     <!-- Side Column -->
     <div class="tile is-ancestor">
 
-        <div class="tile is-parent">
-            <article id="trailOpt1" class="tile is-child box">
+        <div class="tile is-parent trailList">
+            <!-- <article id="trailOpt1" class="tile is-child box">
                 <p class="subtitle" id="name2">trail name</p>
                 <div class="content">
-                    <p id="info2">needs image, or not?</p>
+                    <p>needs image, or not?</p>
                 </div>
             </article>
             <article id="trailOpt2" class="tile is-child box">
                 <p class="subtitle" id="name3">trail name</p>
                 <div class="content">
-                    <p id="info3">needs image, or not?</p>
+                    <p>needs image, or not?</p>
                 </div>
             </article>
             <article id="trailOpt3" class="tile is-child box">
                 <p class="subtitle" id="name4">trail name</p>
                 <div class="content">
-                    <p id="info4">needs image, or not?</p>
+                    <p>needs image, or not?</p>
                 </div>
             </article>
             <article id="trailOpt4" class="tile is-child box">
                 <p class="subtitle" id="name5">trail name</p>
                 <div class="content">
-                    <p id="info5">needs image, or not?</p>
+                    <p>needs image, or not?</p>
                 </div>
             </article>
             <article id="trailOpt5" class="tile is-child box">
                 <p class="subtitle" id="name6">trail name</p>
+
                 <div class="content">
-                    <p id="info6">needs image, or not?</p>
+                    <p>needs image, or not?</p>
                 </div>
             </article>
             <article id="trailOpt6" class="tile is-child box">
                 <p class="subtitle" id="name7">trail name</p>
                 <div class="content">
-                    <p id="info7">needs image, or not?</p>
+                    <p>needs image, or not?</p>
                 </div>
-            </article>
+            </article> -->
         </div>
     </div>
 
 
     <footer class="footer">
         <div class="content has-text-centered">
-          <p>
-            The <strong>Trail Weather Tracker</strong> by <strong> Breakout Room 3</strong>
-          </p>
-          <p>Dimitri Nakos ~ Kayla Lynch ~ Randy Lofgren ~ Mitch Mathias</p>
+            <p>
+                The <strong>Trail Weather Tracker</strong> by <strong> Breakout Room 3</strong>
+            </p>
+            <p>Dimitri Nakos ~ Kayla Lynch ~ Randy Lofgren ~ Mitch Mathias</p>
         </div>
-      </footer>
+    </footer>
 
 
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
@@ -138,4 +142,4 @@
     <script src="./assets/script.js"></script>
 </body>
 
-</html>                                                                              
+</html>
