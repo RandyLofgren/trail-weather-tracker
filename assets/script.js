@@ -22,7 +22,7 @@
 //  need to set the id to an HTML
 var submit = $("#submitBtn")
 
-$("#testBtn").on("click", function (event) {
+$(".is-info").on("click", function (event) {
     event.preventDefault()
 
 
@@ -42,7 +42,8 @@ $("#testBtn").on("click", function (event) {
             method: "GET"
         }).then(function (response) {
             // console.log(response)
-            $(".message-body").text(response.trails[0].name)
+            $(".trail-name").text(response.trails[0].name)
+            $(".trail-info").text(response.trails[0].summary)
             console.log(response)
 
 
