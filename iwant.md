@@ -55,7 +55,7 @@
             </article>
         </div>
         <div class="tile is-parent is-verticle is-8">
-            <article class="tile is-child box main-area">
+            <article class="tile is-child box">
                 <article class="tile is-child notification is-danger">
                     <p class="title">Wide tile</p>
                     <p class="subtitle">Aligned with the right tile</p>
