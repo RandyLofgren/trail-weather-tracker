@@ -1,5 +1,5 @@
 var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f"
-var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f";
+// var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f";
 
 
 
@@ -7,23 +7,23 @@ var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.c
 
 
 ///////////////////just holding onto this in case i need the URL and key
-$.ajax({
-    url: "https://www.hikingproject.com/data/get-trails?lat=35.227&lon=-80.843&maxDistance=300&key=" + APIkey,
-    method: "GET"
-}).then(function (response) {
-    // console.log(response)
-    $(".message-body").text(response.trails[0].name)
-    console.log(response)
+// $.ajax({
+//     url: "https://www.hikingproject.com/data/get-trails?lat=35.227&lon=-80.843&maxDistance=300&key=" + APIkey,
+//     method: "GET"
+// }).then(function (response) {
+//     // console.log(response)
+//     $(".message-body").text(response.trails[0].name)
+//     console.log(response)
 
 
-});
+// });
 
 
 
 //  need to set the id to an HTML
 var submit = $("#submitBtn")
 
-$("#testBtn").on("click", function (event) {
+$(".is-info").on("click", function (event) {
     event.preventDefault()
 
 
@@ -32,7 +32,7 @@ $("#testBtn").on("click", function (event) {
         url: "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=Charlotte,NorthCarolina&appid=93048a14e536394603a5f5173a41d761",
         method: "GET"
     }).then(function (weather) {
-        // console.log(response)
+        
         console.log(weather)
 
         let lat = weather.coord.lat
@@ -42,14 +42,19 @@ $("#testBtn").on("click", function (event) {
             hikingURL: "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f",
             method: "GET"
         }).then(function (response) {
-            // console.log(response)
-            $(".message-body").text(response.trails[0].name)
             console.log(response)
+            for (var i = 1; i < response.trails.length; i++) {
+                var nameResp = response.trails[i].name;
+                var infoResp = response.trails[i].summary;
+                $("#name" + i).text(nameResp);
+                $("#info" + i).text(infoResp);
+               
 
 
-        });
 
+            };
 
+        })
 
     });
 })
@@ -65,23 +70,23 @@ $("#testBtn").on("click", function (event) {
 
 // function to show hiking trail results //
 
-var resultOfTrails = (trails[i].name);
-var trails = data.trails;
+// var resultOfTrails = (trails[i].name);
+// var trails = data.trails;
 
-function showTrail() {
-    $(".trailResult").text("");
+// function showTrail() {
+//     $(".trailResult").text("");
     
-    if (trails.length === 0) {
-        $(".trailResult").text("Please Enter a Valid City");
+//     if (trails.length === 0) {
+//         $(".trailResult").text("Please Enter a Valid City");
         
-        $(".trailResult").text(resultOfTrails);
-    }
+//         $(".trailResult").text(resultOfTrails);
+//     }
 
     
 
 
 
-}
+// }
 
 
 
