@@ -1,21 +1,22 @@
-// var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f"
+var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f"
+var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f";
 
 
 
 
 
 
-/////////////////////just holding onto this in case i need the URL and key
-// $.ajax({
-//     url: "https://www.hikingproject.com/data/get-trails?lat=35.227&lon=-80.843&maxDistance=300&key=" + APIkey,
-//     method: "GET"
-// }).then(function (response) {
-//     // console.log(response)
-//     $(".message-body").text(response.trails[0].name)
-//     console.log(response)
+///////////////////just holding onto this in case i need the URL and key
+$.ajax({
+    url: "https://www.hikingproject.com/data/get-trails?lat=35.227&lon=-80.843&maxDistance=300&key=" + APIkey,
+    method: "GET"
+}).then(function (response) {
+    // console.log(response)
+    $(".message-body").text(response.trails[0].name)
+    console.log(response)
 
 
-// });
+});
 
 
 
@@ -38,7 +39,7 @@ $("#testBtn").on("click", function (event) {
         let long = weather.coord.lon
 
         $.ajax({
-            url: "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f",
+            hikingURL: "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f",
             method: "GET"
         }).then(function (response) {
             // console.log(response)
@@ -52,6 +53,39 @@ $("#testBtn").on("click", function (event) {
 
     });
 })
+
+// function to get trail data //
+
+
+
+
+
+
+
+
+// function to show hiking trail results //
+
+
+function showTrail() {
+    $(".trailResult").text("");
+    var trails = data.trails;
+    if (trails.length === 0) {
+        $(".trailResult").text("Please Enter a Valid City")
+    }
+    for (let i = 0; i < trail.lenth; i++) {
+        var trailName = hikingURL(trails.length; i++) {
+            var resultOfTrails = (trails[i].name);
+            $(".trailResult").text(resultOfTrails);
+        }
+
+
+
+    }
+
+
+}
+
+
 //  At the opening of the page there is a search function for city, State
         //  Use the search function in weather API and use the lat and long variables and store them as variables
 
