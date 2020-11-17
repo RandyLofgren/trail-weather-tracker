@@ -1,5 +1,5 @@
 var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f"
-var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f";
+// var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f";
 
 
 
@@ -7,16 +7,16 @@ var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.c
 
 
 ///////////////////just holding onto this in case i need the URL and key
-$.ajax({
-    url: "https://www.hikingproject.com/data/get-trails?lat=35.227&lon=-80.843&maxDistance=300&key=" + APIkey,
-    method: "GET"
-}).then(function (response) {
-    // console.log(response)
-    $(".message-body").text(response.trails[0].name)
-    console.log(response)
+// $.ajax({
+//     url: "https://www.hikingproject.com/data/get-trails?lat=35.227&lon=-80.843&maxDistance=300&key=" + APIkey,
+//     method: "GET"
+// }).then(function (response) {
+//     // console.log(response)
+//     $(".message-body").text(response.trails[0].name)
+//     console.log(response)
 
 
-});
+// });
 
 
 
@@ -70,23 +70,23 @@ $(".is-info").on("click", function (event) {
 
 // function to show hiking trail results //
 
-var resultOfTrails = (trails[i].name);
-var trails = data.trails;
+// var resultOfTrails = (trails[i].name);
+// var trails = data.trails;
 
-function showTrail() {
-    $(".trailResult").text("");
+// function showTrail() {
+//     $(".trailResult").text("");
     
-    if (trails.length === 0) {
-        $(".trailResult").text("Please Enter a Valid City");
+//     if (trails.length === 0) {
+//         $(".trailResult").text("Please Enter a Valid City");
         
-        $(".trailResult").text(resultOfTrails);
-    }
+//         $(".trailResult").text(resultOfTrails);
+//     }
 
     
 
 
 
-}
+// }
 
 
 
