@@ -2,7 +2,7 @@ var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f"
 // var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f";
 var state = $("#state").val()
 var city = $("#city").val()
-state = "NorthCarolina"
+// state = "NorthCarolina"
 city = "Charlotte"
 
 
@@ -26,6 +26,9 @@ var submit = $("#submitBtn")
 $("#submitBtn").on("click", function (event) {
     event.preventDefault()
 
+    city = $("#city").val()
+
+
     $.ajax({
         url: "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + state + "&appid=93048a14e536394603a5f5173a41d761",
         method: "GET"
@@ -36,46 +39,39 @@ $("#submitBtn").on("click", function (event) {
         let lat = weather.coord.lat
         let long = weather.coord.lon
 
+
+
         $.ajax({
             url: "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=10&key=200975281-2d283bf1ff307c50113654f42a31551f",
             method: "GET"
         }).then(function (response) {
             // console.log(response)
+
+            showTrail()
+
             $("#mainTitle").text(response.trails[0].name)
-            $("#mainSummary").text(response.trails[0].location)
+            $("#mainLocation").text(response.trails[0].location)
             $("#mainIMG").attr("src", response.trails[0].imgSmall)
             console.log(response)
 
 
         });
-
     });
 })
 
 // function to get trail data //
-
-
-
-
-
-
-
-
 // function to show hiking trail results //
 
 // var resultOfTrails = (trails[i].name);
 // var trails = data.trails;
 
-// function showTrail() {
-//     $(".trailResult").text("");
-
-//     if (trails.length === 0) {
-//         $(".trailResult").text("Please Enter a Valid City");
-
-//         $(".trailResult").text(resultOfTrails);
-//     }
-
-// }
+function showTrail() {
+    $("#mainTitle").text("");
+    if (response.trails.length === 0) {
+        $("#mainTitle").text("Please Enter a Valid City");
+        // $(".trailResult").text(resultOfTrails);
+    }
+}
 
 
 
