@@ -38,7 +38,7 @@ $("#testBtn").on("click", function (event) {
         let long = weather.coord.lon
 
         $.ajax({
-            url: "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f",
+            url: "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=10&key=200975281-2d283bf1ff307c50113654f42a31551f",
             method: "GET"
         }).then(function (response) {
             // console.log(response)
