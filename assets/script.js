@@ -29,9 +29,13 @@ function mainTrail(selected) {
     $("#mainLocation").text(currentResults.trails[selected].location)
     $("#mainIMG").attr("src", currentResults.trails[selected].imgSmall)
     $("#mainInfo").text(currentResults.trails[selected].summary)
+    $("#mainDiff").text("Difficulty Color: " + currentResults.trails[selected].difficulty.toUpperCase())
+    $("#mainLength").text("Trail Distance: " + currentResults.trails[selected].length + " Miles")
+    $("#mainStars").text("Trail Rating: " + currentResults.trails[selected].stars + " Out of 5")
     loadMap(currentResults.trails[selected].latitude, currentResults.trails[selected].longitude)
 }
 function loadMap(lat, long) {
+
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
@@ -39,6 +43,8 @@ function loadMap(lat, long) {
         zoom: 12
     });
 }
+
+
 
 $("#submitBtn").on("click", function (event) {
     event.preventDefault();
@@ -74,6 +80,7 @@ function trailSearch(lat, long) {
     $.ajax({
         url: "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxResults=12&key=200975281-2d283bf1ff307c50113654f42a31551f",
         method: "GET"
+
     }).then(function (response) {
         console.log(response);
 
@@ -103,9 +110,13 @@ function loadTrails() {
             var article = $('<article id="trailOpt' + i + '" class="tile is-child box trail is-2">');
             article.css("cursor", "pointer");
             article.attr("data-trailNum", i);
-            var newP = $('<p class="subtitle" id="name' + i + '">').text(currentResults.trails[i].name);
+            var newP = $('<p class="subtitle difColor" id="name' + i + '">').text(currentResults.trails[i].name);
             // <div class="content">
-            var content = $('<p class="content">').text(currentResults.trails[i].summary);
+
+            var content = $('<p class="content difColor">').text(currentResults.trails[i].summary);
+
+            var content = $('<img class="content">').attr("src", currentResults.trails[i].imgSqSmall);
+
             article.append(newP, content);
             $(".trailList1").append(article);
 
@@ -114,9 +125,12 @@ function loadTrails() {
             var article = $('<article id="trailOpt' + i + '" class="tile is-child box trail is-2">');
             article.css("cursor", "pointer");
             article.attr("data-trailNum", i);
-            var newP = $('<p class="subtitle" id="name' + i + '">').text(currentResults.trails[i].name);
+            var newP = $('<p class="subtitle difColor" id="name' + i + '">').text(currentResults.trails[i].name);
             // <div class="content">
-            var content = $('<p class="content">').text(currentResults.trails[i].summary);
+
+            var content = $('<p class="content difColor">').text(currentResults.trails[i].summary);
+
+            var content = $('<img class="content">').attr("src", currentResults.trails[i].imgSqSmall);
             article.append(newP, content);
             $(".trailList2").append(article)
         }

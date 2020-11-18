@@ -1,10 +1,42 @@
-.body {
+/* 34626c
+839b97
+cfd3ce
+c6b497 */
+
+
+.body{
     background-color: 	hsl(204, 86%, 53%);
     border-color:  	hsl(204, 86%, 53%);
 }
 
-.hero {
-    margin: 20px;
+.hero{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #34626c;
+    color: white;
+}
+.title{
+    color: white;
+}
+
+.subtitle{
+    color: white;
+}
+
+.content{
+    color: white;
+}
+
+
+.footer{
+    background-color: #c6b497;
+    color: white;
+    height: 40px;
+    
+}
+
+.p{
+    color: white;
 }
 
 .img {
@@ -13,18 +45,39 @@
 }
 
 #mainIMG {
-    height: 350px;
+    height: 200px;
+    margin: 10px;
 }
 
-.trailList1 {
-    padding: auto;
+.trail{
+    background-color: #cfd3ce;
+
 }
 
-.trailList2 {
-    align-self: center;
+#mainIMG {
+    height: 200px;
 }
 
+.main-content{
+    background-color: #839b97;
+}
+
+.difColor{
+    color: #34626c;
+}
+
+.button{
+    background-color:  #34626c ;
+    color: white;
+    border: none;
+    margin-bottom: 10px;
+}
 #map {
     height: 350px;
-    width: 350px;
+    width: 100%;
+}
+.mapBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

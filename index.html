@@ -17,7 +17,7 @@
 
 <body>
     <!-- Header with  -->
-    <section class="hero is-info">
+    <section class="hero">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
@@ -33,11 +33,11 @@
     </section>
 
     <!--  -->
-    <div class="tile is-ancestor">
+    <div class="tile is-ancestor mainBox">
         <div class="tile is-parent">
-            <article class="tile is-child box">
+            <article class="tile is-child box main-content">
 
-                <div class="field is-6">
+                <div class="field is-6 ">
                     <div class="control has-icons-left has-icons-right">
                         <input class="input" type="text" id="city" placeholder="City">
                         <span class="icon is-left">
@@ -58,10 +58,9 @@
                 </div>
 
                 <div class="control">
-                    <button class="button is-info" id="submitBtn">Search</button>
+                    <button class="button" id="submitBtn">Search</button>
                 </div>
-                <article class="tile is-child box">
-                    <p class="title" id="name1">Trail Name</p>
+                <article class="tile is-child box mapBox">
                     <div id="map"></div>
                     <figure class="image is-1by-1">
 
@@ -71,8 +70,8 @@
         </div>
 
         <!-- Wide Tile -->
-        <div class="tile is-parent is-verticle is-8">
-            <article class="tile is-child box main-area">
+        <div class="tile is-parent is-verticle is-8 ">
+            <article class="tile is-child box main-content">
                 <article class="tile is-child">
                     <p class="title" id="mainTitle">Trail Name</p>
                     <p class="subtitle" id="mainLocation">Location</p>
@@ -81,7 +80,9 @@
                         <span class="mainInfo" id="mainInfo"></span>
                         <img src="" id="mainIMG" style="float: left;" alt="">
                     </div>
-                    <div class="forecast" id="weatherForecast"></div>
+                    <div class="content" id="mainDiff"></div>
+                    <div class="content" id="mainLength"></div>
+                    <div class="content" id="mainStars"></div>
                 </article>
             </article>
         </div>
