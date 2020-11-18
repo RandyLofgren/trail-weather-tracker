@@ -72,3 +72,12 @@ c6b497 */
     border: none;
     margin-bottom: 10px;
 }
+#map {
+    height: 350px;
+    width: 100%;
+}
+.mapBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
