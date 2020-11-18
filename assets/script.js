@@ -40,9 +40,9 @@ function mainTrail(selected) {
 }
 
 $("#submitBtn").on("click", function (event) {
-    event.preventDefault()
+    event.preventDefault();
 
-    city = $("#city").val()
+    city = $("#city").val();
 
     // https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=35.23&lon=-80.84&maxDistance=10&key=200975281-2d283bf1ff307c50113654f42a31551f
     $.ajax({
@@ -50,34 +50,37 @@ $("#submitBtn").on("click", function (event) {
         method: "GET"
     }).then(function (weather) {
 
-        console.log(weather)
+        console.log(weather);
 
-        let lat = weather.coord.lat
-        let long = weather.coord.lon
+        let lat = weather.coord.lat;
+        let long = weather.coord.lon;
 
         // for (let i = 0; i < array.length; i++) {
         //     // weather data
         //     // $("#weatherForecast").weather.
 
         // }
+        console.log(lat, long);
+        trailSearch(lat, long);
+    })
+})
+function trailSearch(lat, long) {
+    $.ajax({
+        url: "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=10&key=200975281-2d283bf1ff307c50113654f42a31551f",
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
 
-        console.log(lat, long)
-        $.ajax({
-            url: "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=10&key=200975281-2d283bf1ff307c50113654f42a31551f",
-            method: "GET"
-        }).then(function (response) {
-            console.log(response)
+        // showTrail()
+        currentResults = response;
+        localStorage.setItem("trails", JSON.stringify(currentResults));
+        loadTrails();
+    })
 
-            // showTrail()
-            currentResults = response
-            localStorage.setItem("trails", JSON.stringify(currentResults))
-            loadTrails()
-        })
+};
 
-    });
-});
 function loadTrails() {
-    mainTrail(0)
+    mainTrail(0);
     // var nameResp = response.trails[1].name;
     // var infoResp = response.trails[1].summary;
     // // $("#name" + i).text(nameResp);
@@ -86,22 +89,22 @@ function loadTrails() {
 
     $(".trailList").empty()
     for (var i = 0; i < currentResults.trails.length; i++) {
-        console.log("test")
+        console.log("test");
         var article = $('<article id="trailOpt' + i + '" class="tile is-child box trail">');
-        article.css("cursor", "pointer")
-        article.attr("data-trailNum", i)
+        article.css("cursor", "pointer");
+        article.attr("data-trailNum", i);
         var newP = $('<p class="subtitle" id="name' + i + '">').text(currentResults.trails[i].name);
         // <div class="content">
         var content = $('<p class="content">').text(currentResults.trails[i].summary);
-        article.append(newP, content)
-        $(".trailList").append(article)
+        article.append(newP, content);
+        $(".trailList").append(article);
 
 
     };
 }
 
 $(document).on("click", ".trail", function () {
-    mainTrail($(this).attr("data-trailNum"))
+    mainTrail($(this).attr("data-trailNum"));
 })
 
 // function to get trail data //
