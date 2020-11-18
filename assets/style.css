@@ -1,10 +1,10 @@
-.hero{
-    margin: 20px;
+.body{
+    background-color: 	hsl(204, 86%, 53%);
+    border-color:  	hsl(204, 86%, 53%);
 }
 
-.main-area{
-    height: 600px;
-    background-color: 	hsl(204, 86%, 53%);
+.hero{
+    margin: 20px;
 }
 .img {
     height: 200px;
@@ -13,4 +13,10 @@
 
 #mainIMG {
     height: 350px;
+}
+.trailList1{
+    padding: auto;
+}
+.trailList2{
+    align-self: center;
 }
