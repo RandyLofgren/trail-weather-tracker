@@ -12,11 +12,19 @@
 }
 
 #mainIMG {
-    height: 350px;
+    height: 150px;
+    width: 150px;
 }
 .trailList1{
     padding: auto;
 }
 .trailList2{
     align-self: center;
+}
+
+
+.boxForWeather{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
 }

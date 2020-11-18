@@ -1,5 +1,5 @@
 var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f"
-// var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f";
+// var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f";//
 var state = $("#state").val()
 var city = $("#city").val()
 var currentResults = {}
@@ -75,6 +75,7 @@ function trailSearch(lat, long) {
         currentResults = response;
         localStorage.setItem("trails", JSON.stringify(currentResults));
         loadTrails();
+        console.log(response)
     })
 
 };
