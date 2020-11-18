@@ -6,13 +6,10 @@
 .hero{
     margin: 20px;
 }
-.img {
-    height: 200px;
-    width: 200px;
-}
+
 
 #mainIMG {
-    height: 350px;
+    height: 200px;
 }
 .trailList1{
     padding: auto;
