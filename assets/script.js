@@ -3,10 +3,13 @@ var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f"
 var state = $("#state").val()
 var city = $("#city").val()
 var currentResults = {}
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGltaXRyaW5ha29zIiwiYSI6ImNraG04emxjdTAzdmIyc2xnZDU1OHptdzQifQ.wLfsubXg_PoFLbSd9ZcGpg';
 // city = "Charlotte"
 if (localStorage.getItem("trails")) {
-    currentResults = JSON.parse(localStorage.getItem("trails"))
+    currentResults = JSON.parse(localStorage.getItem("trails"));
+    var latLong = JSON.parse(localStorage.getItem("trailLatLong"));
     loadTrails()
+    loadMap(latLong[0], latLong[1])
 }
 if (!state) {
     state = "NorthCarolina"
@@ -16,27 +19,25 @@ if (!city) {
 }
 
 
-///////////////////just holding onto this in case i need the URL and key
-// $.ajax({
-//     url: "https://www.hikingproject.com/data/get-trails?lat=35.227&lon=-80.843&maxDistance=300&key=" + APIkey,
-//     method: "GET"
-// }).then(function (response) {
-//     // console.log(response)
-//     $(".message-body").text(response.trails[0].name)
-//     console.log(response)
-
-
-// });
-
 
 
 //  need to set the id to an HTML
 var submit = $("#submitBtn")
 function mainTrail(selected) {
+    console.log(currentResults.trails[selected])
     $("#mainTitle").text(currentResults.trails[selected].name)
     $("#mainLocation").text(currentResults.trails[selected].location)
-    $("#mainIMG").attr("src", currentResults.trails[selected].imgMedium)
+    $("#mainIMG").attr("src", currentResults.trails[selected].imgSmall)
     $("#mainInfo").text(currentResults.trails[selected].summary)
+    loadMap(currentResults.trails[selected].latitude, currentResults.trails[selected].longitude)
+}
+function loadMap(lat, long) {
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        center: [long, lat],
+        zoom: 12
+    });
 }
 
 $("#submitBtn").on("click", function (event) {
@@ -55,18 +56,23 @@ $("#submitBtn").on("click", function (event) {
         let lat = weather.coord.lat;
         let long = weather.coord.lon;
 
-        // for (let i = 0; i < array.length; i++) {
-        //     // weather data
-        //     // $("#weatherForecast").weather.
+        //loadMap(lat, long)
 
-        // }
-        console.log(lat, long);
+
+        // var el = document.createElement('div');
+        // el.style.backgroundImage = 'url(https://placekitten.com/g/40/40/)';
+        // el.style.width = 40 + 'px';
+        // el.style.height = 40 + 'px';
+
+
+
+
         trailSearch(lat, long);
     })
 })
 function trailSearch(lat, long) {
     $.ajax({
-        url: "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=10&key=200975281-2d283bf1ff307c50113654f42a31551f",
+        url: "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxResults=12&key=200975281-2d283bf1ff307c50113654f42a31551f",
         method: "GET"
     }).then(function (response) {
         console.log(response);
@@ -74,6 +80,7 @@ function trailSearch(lat, long) {
         // showTrail()
         currentResults = response;
         localStorage.setItem("trails", JSON.stringify(currentResults));
+        localStorage.setItem("trailLatLong", JSON.stringify([lat, long]))
         loadTrails();
     })
 
@@ -92,7 +99,7 @@ function loadTrails() {
 
     for (var i = 0; i < currentResults.trails.length; i++) {
         console.log("test");
-        if (i <= 4) {
+        if (i <= 5) {
             var article = $('<article id="trailOpt' + i + '" class="tile is-child box trail is-2">');
             article.css("cursor", "pointer");
             article.attr("data-trailNum", i);
@@ -103,7 +110,7 @@ function loadTrails() {
             $(".trailList1").append(article);
 
         }
-        else if (i > 4) {
+        else if (i > 5) {
             var article = $('<article id="trailOpt' + i + '" class="tile is-child box trail is-2">');
             article.css("cursor", "pointer");
             article.attr("data-trailNum", i);
@@ -121,37 +128,42 @@ $(document).on("click", ".trail", function () {
     mainTrail($(this).attr("data-trailNum"));
 })
 
-// function to get trail data //
-// function to show hiking trail results //
 
-// var resultOfTrails = (trails[i].name);
-// var trails = data.trails;
 
-// function showTrail() {
-//     $("#mainTitle").text("");
-//     if (currentResults.trails.length === "0") {
-//         $("#mainTitle").text("Please Enter a Valid City");
-//         // $(".trailResult").text(resultOfTrails);
-//     }
+
+
+
+
+
+// function handleKitten(e) {
+//     e.target.style.backgroundImage = 'url(http://placekitten.com/g/50/50)';
+//     e.stopPropagation();
 // }
 
+function handleMapClick(e) {
+    console.log('handleMapClick', e);
+    map.off('click', handleMapClick.bind(this));
+}
+
+// var map = new mapboxgl.Map({
+//     container: 'map',
+//     style: 'mapbox://styles/mapbox/streets-v9',
+//     center: [lat, long],
+//     zoom: 5
+// });
+
+// var el = document.createElement('div');
+// el.style.backgroundImage = 'url(https://placekitten.com/g/40/40/)';
+// el.style.width = 40 + 'px';
+// el.style.height = 40 + 'px';
 
 
 
-//  At the opening of the page there is a search function for city, State
-        //  Use the search function in weather API and use the lat and long variables and store them as variables
+// new mapboxgl.Marker(el)
+//     .setLngLat([lat, long])
+//     .addTo(map);
 
-//  after searching.  use that result to generate a result
-        // using the lat and long variables 
-
-//  turn that result to fill in all the information for the sections.
-
-//  use the results from the search to give weather readings for the area.
-
-//  populate the bottom section with other recommended local trails
+// map.on('click', handleMapClick.bind(el));
 
 
-
-
-
-
+// el.addEventListener('click', handleKitten, false);

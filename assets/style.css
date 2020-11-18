@@ -1,11 +1,12 @@
-.body{
+.body {
     background-color: 	hsl(204, 86%, 53%);
     border-color:  	hsl(204, 86%, 53%);
 }
 
-.hero{
+.hero {
     margin: 20px;
 }
+
 .img {
     height: 200px;
     width: 200px;
@@ -14,9 +15,16 @@
 #mainIMG {
     height: 350px;
 }
-.trailList1{
+
+.trailList1 {
     padding: auto;
 }
-.trailList2{
+
+.trailList2 {
     align-self: center;
+}
+
+#map {
+    height: 350px;
+    width: 350px;
 }
