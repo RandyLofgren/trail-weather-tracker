@@ -66,7 +66,7 @@ $("#submitBtn").on("click", function (event) {
 })
 function trailSearch(lat, long) {
     $.ajax({
-        url: "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=10&key=200975281-2d283bf1ff307c50113654f42a31551f",
+        url: "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxResults=10&key=200975281-2d283bf1ff307c50113654f42a31551f",
         method: "GET"
     }).then(function (response) {
         console.log(response);
