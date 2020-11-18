@@ -37,6 +37,9 @@ function mainTrail(selected) {
     $("#mainLocation").text(currentResults.trails[selected].location)
     $("#mainIMG").attr("src", currentResults.trails[selected].imgMedium)
     $("#mainInfo").text(currentResults.trails[selected].summary)
+    $("#mainDiff").text("Difficulty Color: " + currentResults.trails[selected].difficulty.toUpperCase())
+    $("#mainLength").text("Trail Distance: " + currentResults.trails[selected].length + " Miles")
+    $("#mainStars").text("Trail Rating: " + currentResults.trails[selected].stars + " Out of 5")
     console.log(currentResults)
 }
 
