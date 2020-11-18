@@ -1,3 +1,9 @@
+/* 34626c
+839b97
+cfd3ce
+c6b497 */
+
+
 .body{
     background-color: 	hsl(204, 86%, 53%);
     border-color:  	hsl(204, 86%, 53%);
@@ -5,15 +11,55 @@
 
 .hero{
     margin: 20px;
+    background-color: #34626c;
+    color: white;
+}
+.title{
+    color: white;
 }
 
+.subtitle{
+    color: white;
+}
+
+.content{
+    color: white;
+}
+
+
+.footer{
+    background-color: #c6b497;
+    color: white;
+    height: 40px;
+    
+}
+ newColors
+.p{
+    color: white;
+}
+
+.img {
+    height: 200px;
+    width: 200px;
+}
 
 #mainIMG {
     height: 200px;
 }
-.trailList1{
-    padding: auto;
+
+.trail{
+    background-color: #cfd3ce;
+
+
+
+#mainIMG {
+    height: 200px;
+ main
 }
-.trailList2{
-    align-self: center;
+.main-content{
+    background-color: #839b97;
+}
+
+.difColor{
+    color: #34626c;
 }

@@ -70,11 +70,16 @@ $("#submitBtn").on("click", function (event) {
 })
 function trailSearch(lat, long) {
     $.ajax({
+newColors
+        url: "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&&maxResults=12&key=200975281-2d283bf1ff307c50113654f42a31551f",
+
         url: "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxResults=12&key=200975281-2d283bf1ff307c50113654f42a31551f",
+ main
         method: "GET"
+        
     }).then(function (response) {
         console.log(response);
-
+        
         // showTrail()
         currentResults = response;
         localStorage.setItem("trails", JSON.stringify(currentResults));
@@ -90,7 +95,7 @@ function loadTrails() {
     // // $("#name" + i).text(nameResp);
     // $("#info1").text(infoResp);
     // $("#name1").text(nameResp);
-
+    
     $(".trailList1").empty()
     $(".trailList2").empty()
 
@@ -100,9 +105,13 @@ function loadTrails() {
             var article = $('<article id="trailOpt' + i + '" class="tile is-child box trail is-2">');
             article.css("cursor", "pointer");
             article.attr("data-trailNum", i);
-            var newP = $('<p class="subtitle" id="name' + i + '">').text(currentResults.trails[i].name);
+            var newP = $('<p class="subtitle difColor" id="name' + i + '">').text(currentResults.trails[i].name);
             // <div class="content">
+ newColors
+            var content = $('<p class="content difColor">').text(currentResults.trails[i].summary);
+
             var content = $('<img class="content">').attr("src" , currentResults.trails[i].imgSqSmall);
+ main
             article.append(newP, content);
             $(".trailList1").append(article);
 
@@ -111,9 +120,13 @@ function loadTrails() {
             var article = $('<article id="trailOpt' + i + '" class="tile is-child box trail is-2">');
             article.css("cursor", "pointer");
             article.attr("data-trailNum", i);
-            var newP = $('<p class="subtitle" id="name' + i + '">').text(currentResults.trails[i].name);
+            var newP = $('<p class="subtitle difColor" id="name' + i + '">').text(currentResults.trails[i].name);
             // <div class="content">
+ newColors
+            var content = $('<p class="content difColor">').text(currentResults.trails[i].summary);
+
             var content = $('<img class="content">').attr("src" , currentResults.trails[i].imgSqSmall);
+ main
             article.append(newP, content);
             $(".trailList2").append(article)
         }
