@@ -9,10 +9,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltaXRyaW5ha29zIiwiYSI6ImNraG04emxjdTAzdmIyc
 function init() {
     currentResults = JSON.parse(localStorage.getItem("trails")) || { trails: [] };
     if (currentResults.trails.length) {
-        var latLong = JSON.parse(localStorage.getItem("trailLatLong"));
         console.log(currentResults);
         loadTrails();
-        loadMap(latLong[0], latLong[1]);
+     
     }
 
     if (!state) {
@@ -95,7 +94,6 @@ function trailSearch(lat, long) {
         // showTrail()
         currentResults = response;
         localStorage.setItem("trails", JSON.stringify(currentResults));
-        localStorage.setItem("trailLatLong", JSON.stringify([lat, long]))
         // console.log(currentResults)
         loadTrails();
     })
