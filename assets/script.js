@@ -70,9 +70,11 @@ $("#submitBtn").on("click", function (event) {
 })
 function trailSearch(lat, long) {
     $.ajax({
+
         url: "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&&maxResults=12&key=200975281-2d283bf1ff307c50113654f42a31551f",
 
         url: "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxResults=12&key=200975281-2d283bf1ff307c50113654f42a31551f",
+ 
         method: "GET"
         
     }).then(function (response) {
@@ -124,7 +126,6 @@ function loadTrails() {
             var content = $('<p class="content difColor">').text(currentResults.trails[i].summary);
 
             var content = $('<img class="content">').attr("src" , currentResults.trails[i].imgSqSmall);
- 
             article.append(newP, content);
             $(".trailList2").append(article)
         }
