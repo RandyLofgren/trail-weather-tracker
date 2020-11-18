@@ -81,3 +81,33 @@ c6b497 */
     flex-direction: column;
     align-items: center;
 }
+.title{
+    font-family: Domine;
+    font-size: 45px;  
+}
+.subtitle{
+    font-family: roboto;
+    font-size: 25px;
+}
+
+#mainTitle{
+    font-family: Domine;
+    font-size: 35px;
+}
+#mainLocation{
+    font-family: Bitter;
+    font-size: 20px;
+    font-style: italic;
+}
+#mainInfo{
+    font-size: 18px;
+}
+#mainLength{
+    font-size: 18px;
+}
+#mainStars{
+    font-size: 18px;
+}
+#subtitle.difColor{
+    font-size: 18px;
+}
