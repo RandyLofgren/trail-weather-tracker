@@ -81,3 +81,12 @@ c6b497 */
     flex-direction: column;
     align-items: center;
 }
+
+.trailCSS{
+    text-align: center;
+}
+
+.trailList{
+    margin:20px;
+    padding: 20px;
+}
