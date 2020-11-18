@@ -87,18 +87,32 @@ function loadTrails() {
     // $("#info1").text(infoResp);
     // $("#name1").text(nameResp);
 
-    $(".trailList").empty()
+    $(".trailList1").empty()
+    $(".trailList2").empty()
+
     for (var i = 0; i < currentResults.trails.length; i++) {
         console.log("test");
-        var article = $('<article id="trailOpt' + i + '" class="tile is-child box trail">');
-        article.css("cursor", "pointer");
-        article.attr("data-trailNum", i);
-        var newP = $('<p class="subtitle" id="name' + i + '">').text(currentResults.trails[i].name);
-        // <div class="content">
-        var content = $('<p class="content">').text(currentResults.trails[i].summary);
-        article.append(newP, content);
-        $(".trailList").append(article);
+        if (i <= 4) {
+            var article = $('<article id="trailOpt' + i + '" class="tile is-child box trail is-2">');
+            article.css("cursor", "pointer");
+            article.attr("data-trailNum", i);
+            var newP = $('<p class="subtitle" id="name' + i + '">').text(currentResults.trails[i].name);
+            // <div class="content">
+            var content = $('<p class="content">').text(currentResults.trails[i].summary);
+            article.append(newP, content);
+            $(".trailList1").append(article);
 
+        }
+        else if (i > 4) {
+            var article = $('<article id="trailOpt' + i + '" class="tile is-child box trail is-2">');
+            article.css("cursor", "pointer");
+            article.attr("data-trailNum", i);
+            var newP = $('<p class="subtitle" id="name' + i + '">').text(currentResults.trails[i].name);
+            // <div class="content">
+            var content = $('<p class="content">').text(currentResults.trails[i].summary);
+            article.append(newP, content);
+            $(".trailList2").append(article)
+        }
 
     };
 }
