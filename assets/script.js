@@ -126,7 +126,6 @@ function loadTrails() {
             var content = $('<p class="content difColor">').text(currentResults.trails[i].summary);
 
             var content = $('<img class="content">').attr("src" , currentResults.trails[i].imgSqSmall);
-
             article.append(newP, content);
             $(".trailList2").append(article)
         }

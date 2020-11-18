@@ -10,7 +10,8 @@ c6b497 */
 }
 
 .hero{
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: #34626c;
     color: white;
 }
@@ -33,7 +34,7 @@ c6b497 */
     height: 40px;
     
 }
- newColors
+
 .p{
     color: white;
 }
@@ -45,6 +46,7 @@ c6b497 */
 
 #mainIMG {
     height: 200px;
+    margin: 10px;
 }
 
 .trail{
@@ -54,12 +56,19 @@ c6b497 */
 
 #mainIMG {
     height: 200px;
- main
 }
+
 .main-content{
     background-color: #839b97;
 }
 
 .difColor{
     color: #34626c;
+}
+
+.button{
+    background-color:  #34626c ;
+    color: white;
+    border: none;
+    margin-bottom: 10px;
 }
