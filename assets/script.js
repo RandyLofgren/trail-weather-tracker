@@ -1,5 +1,9 @@
-var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f"
-var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f";
+var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f";
+// var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f";
+var state = $("#state").val();
+var city = $("#city").val();
+var currentResults = {};
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGltaXRyaW5ha29zIiwiYSI6ImNraG04emxjdTAzdmIyc2xnZDU1OHptdzQifQ.wLfsubXg_PoFLbSd9ZcGpg';
 
 
 function init() {
