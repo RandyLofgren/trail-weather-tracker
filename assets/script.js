@@ -1,27 +1,46 @@
-var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f"
+var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f";
 // var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f";
-var state = $("#state").val()
-var city = $("#city").val()
-var currentResults = {}
+var state = $("#state").val();
+var city = $("#city").val();
+var currentResults = {};
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGltaXRyaW5ha29zIiwiYSI6ImNraG04emxjdTAzdmIyc2xnZDU1OHptdzQifQ.wLfsubXg_PoFLbSd9ZcGpg';
-// city = "Charlotte"
+
+
+function init() {
+    currentResults = JSON.parse(localStorage.getItem("trails")) || { trails: [] };
+    if (currentResults.trails.length) {
+        var latLong = JSON.parse(localStorage.getItem("trailLatLong"));
+        console.log(currentResults);
+        loadTrails();
+        loadMap(latLong[0], latLong[1]);
+    }
+
+    if (!state) {
+        state = "NorthCarolina";
+    }
+
+    if (!city) {
+        city = "Charlotte";
+    }
+}
+
 
 
 
 
 //  need to set the id to an HTML
-var submit = $("#submitBtn")
 function mainTrail(selected) {
-    console.log(currentResults.trails[selected])
-    $("#mainTitle").text(currentResults.trails[selected].name)
-    $("#mainLocation").text(currentResults.trails[selected].location)
-    $("#mainIMG").attr("src", currentResults.trails[selected].imgSmall)
-    $("#mainInfo").text(currentResults.trails[selected].summary)
-    $("#mainDiff").text("Difficulty Color: " + currentResults.trails[selected].difficulty.toUpperCase())
-    $("#mainLength").text("Trail Distance: " + currentResults.trails[selected].length + " Miles")
-    $("#mainStars").text("Trail Rating: " + currentResults.trails[selected].stars + " Out of 5")
-    loadMap(currentResults.trails[selected].latitude, currentResults.trails[selected].longitude)
+    console.log(currentResults.trails[selected]);
+    $("#mainTitle").text(currentResults.trails[selected].name);
+    $("#mainLocation").text(currentResults.trails[selected].location);
+    $("#mainIMG").attr("src", currentResults.trails[selected].imgSmall);
+    $("#mainInfo").text(currentResults.trails[selected].summary);
+    $("#mainDiff").text("Difficulty Color: " + currentResults.trails[selected].difficulty.toUpperCase());
+    $("#mainLength").text("Trail Distance: " + currentResults.trails[selected].length + " Miles");
+    $("#mainStars").text("Trail Rating: " + currentResults.trails[selected].stars + " Out of 5");
+    loadMap(currentResults.trails[selected].latitude, currentResults.trails[selected].longitude);
 }
+
 function loadMap(lat, long) {
 
     var map = new mapboxgl.Map({
@@ -33,6 +52,7 @@ function loadMap(lat, long) {
 }
 
 
+var submit = $("#submitBtn")
 
 $("#submitBtn").on("click", function (event) {
     event.preventDefault();
@@ -76,12 +96,16 @@ function trailSearch(lat, long) {
         currentResults = response;
         localStorage.setItem("trails", JSON.stringify(currentResults));
         localStorage.setItem("trailLatLong", JSON.stringify([lat, long]))
+        // console.log(currentResults)
         loadTrails();
     })
 
 };
 
 function loadTrails() {
+    if (!currentResults.trails.length) {
+        return false
+    }
     mainTrail(0);
     // var nameResp = response.trails[1].name;
     // var infoResp = response.trails[1].summary;
@@ -128,7 +152,7 @@ function loadTrails() {
 
 $(document).on("click", ".trail", function () {
     mainTrail($(this).attr("data-trailNum"));
-    
+    console.log("here")
 })
 
 
@@ -188,3 +212,4 @@ if (!city) {
 
 
 // el.addEventListener('click', handleKitten, false);
+init()
