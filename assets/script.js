@@ -70,11 +70,11 @@ $("#submitBtn").on("click", function (event) {
 })
 function trailSearch(lat, long) {
     $.ajax({
-newColors
+
         url: "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&&maxResults=12&key=200975281-2d283bf1ff307c50113654f42a31551f",
 
         url: "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxResults=12&key=200975281-2d283bf1ff307c50113654f42a31551f",
- main
+ 
         method: "GET"
         
     }).then(function (response) {
@@ -107,11 +107,11 @@ function loadTrails() {
             article.attr("data-trailNum", i);
             var newP = $('<p class="subtitle difColor" id="name' + i + '">').text(currentResults.trails[i].name);
             // <div class="content">
- newColors
+
             var content = $('<p class="content difColor">').text(currentResults.trails[i].summary);
 
             var content = $('<img class="content">').attr("src" , currentResults.trails[i].imgSqSmall);
- main
+
             article.append(newP, content);
             $(".trailList1").append(article);
 
@@ -122,11 +122,11 @@ function loadTrails() {
             article.attr("data-trailNum", i);
             var newP = $('<p class="subtitle difColor" id="name' + i + '">').text(currentResults.trails[i].name);
             // <div class="content">
- newColors
+
             var content = $('<p class="content difColor">').text(currentResults.trails[i].summary);
 
             var content = $('<img class="content">').attr("src" , currentResults.trails[i].imgSqSmall);
- main
+
             article.append(newP, content);
             $(".trailList2").append(article)
         }
