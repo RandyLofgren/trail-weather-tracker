@@ -5,18 +5,6 @@ var city = $("#city").val()
 var currentResults = {}
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGltaXRyaW5ha29zIiwiYSI6ImNraG04emxjdTAzdmIyc2xnZDU1OHptdzQifQ.wLfsubXg_PoFLbSd9ZcGpg';
 // city = "Charlotte"
-if (localStorage.getItem("trails")) {
-    currentResults = JSON.parse(localStorage.getItem("trails"));
-    var latLong = JSON.parse(localStorage.getItem("trailLatLong"));
-    loadTrails()
-    loadMap(latLong[0], latLong[1])
-}
-if (!state) {
-    state = "NorthCarolina"
-}
-if (!city) {
-    city = "Charlotte"
-}
 
 
 
@@ -140,6 +128,7 @@ function loadTrails() {
 
 $(document).on("click", ".trail", function () {
     mainTrail($(this).attr("data-trailNum"));
+    
 })
 
 
@@ -158,6 +147,24 @@ function handleMapClick(e) {
     console.log('handleMapClick', e);
     map.off('click', handleMapClick.bind(this));
 }
+
+
+function init(){
+    if (localStorage.getItem("trails")) {
+    currentResults = JSON.parse(localStorage.getItem("trails"));
+    var latLong = JSON.parse(localStorage.getItem("trailLatLong"));
+    loadTrails()
+    loadMap(latLong[0], latLong[1])
+}
+if (!state) {
+    state = "NorthCarolina"
+}
+if (!city) {
+    city = "Charlotte"
+}
+
+}
+
 
 // var map = new mapboxgl.Map({
 //     container: 'map',
