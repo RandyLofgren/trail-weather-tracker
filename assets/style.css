@@ -67,10 +67,6 @@ body {
 
 }
 
-#mainIMG {
-    height: 200px;
-}
-
 .main-content{
     background-color: #839b97;
 }
@@ -136,3 +132,9 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+@media only screen and (min-width: 768px) {
+    #mainIMG {
+        height: auto;
+        margin: 10px;
+    }
+}
