@@ -81,3 +81,6 @@ c6b497 */
     flex-direction: column;
     align-items: center;
 }
+.weather {
+    position: fixed, bottom;
+}
