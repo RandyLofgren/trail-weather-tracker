@@ -44,6 +44,9 @@ function loadMap(lat, long) {
         center: [long, lat],
         zoom: 12
     });
+    var marker = new mapboxgl.Marker()
+        .setLngLat([long, lat])
+        .addTo(map);
 }
 
 
