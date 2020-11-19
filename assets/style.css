@@ -51,6 +51,7 @@ c6b497 */
 
 .trail{
     background-color: #cfd3ce;
+    margin-left: 10px;
 
 }
 
@@ -86,7 +87,13 @@ c6b497 */
     text-align: center;
 }
 
-.trailList{
-    margin:20px;
-    padding: 20px;
+.forecast{
+    background-color: #839b97;
+    margin-bottom: 24px;
+    margin-left: 24px;
+}
+.fcHolder{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

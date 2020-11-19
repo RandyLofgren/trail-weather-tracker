@@ -33,60 +33,114 @@
     </section>
 
     <!--  -->
-    <div class="tile is-ancestor mainBox">
-        <div class="tile is-parent">
-            <article class="tile is-child box main-content">
+    <div class="tile is-ancestor">
 
-                <div class="field is-6 ">
-                    <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="text" id="city" placeholder="City">
-                        <span class="icon is-left">
-                            <i class="fas fa-globe"></i>
-                        </span>
+        <div class="tile is-vertical">
 
-                    </div>
+            <div class="tile">
+
+                <div class="tile is-parent">
+
+                    <article class="tile is-child box main-content">
+
+                        <div class="field is-6 ">
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" id="city" placeholder="City">
+                                <span class="icon is-left">
+                                    <i class="fas fa-globe"></i>
+                                </span>
+
+                            </div>
+                        </div>
+
+                        <div class="field is-6">
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" id="state" type="text" placeholder="State; optional">
+                                <span class="icon is-left">
+                                    <i class="fas fa-globe" id="trailResults"></i>
+                                </span>
+
+                            </div>
+                        </div>
+
+                        <div class="control">
+                            <button class="button" id="submitBtn">Search</button>
+                        </div>
+                        <article class="tile is-child box mapBox">
+                            <div id="map"></div>
+                            <figure class="image is-1by-1">
+
+                            </figure>
+                        </article>
+                    </article>
+
                 </div>
 
-                <div class="field is-6">
-                    <div class="control has-icons-left has-icons-right">
-                        <input class="input" id="state" type="text" placeholder="State; optional">
-                        <span class="icon is-left">
-                            <i class="fas fa-globe" id="trailResults"></i>
-                        </span>
+                <div class="tile is-parent is-vertical is-8">
 
-                    </div>
+
+                    <article class="tile is-child box main-content">
+
+                        <p class="title" id="mainTitle">Trail Name</p>
+                        <p class="subtitle" id="mainLocation">Location</p>
+                        <div class="content">
+                            <!-- Content -->
+                            <span class="mainInfo" id="mainInfo"></span>
+                            <img src="" id="mainIMG" style="float: left;" alt="">
+                        </div>
+                        <div class="content" id="mainDiff"></div>
+                        <div class="content" id="mainLength"></div>
+                        <div class="content" id="mainStars"></div>
+
+                    </article>
+
+
+
+                    <article class="tile is-child box main-content">
+
+                        <p class="title" id="mainTitle">Trail Name</p>
+                        <div class="tile is-box fcHolder">
+                            <article class="is-child box forecast">
+                                <h3>day</h3>
+                                <p>temp</p>
+                                <p>forecast/icon</p>
+                            </article>
+                            <article class="is-child box forecast">
+                                <h3>day</h3>
+                                <p>temp</p>
+                                <p>forecast/icon</p>
+                            </article>
+                            <article class="is-child box forecast">
+                                <h3>day</h3>
+                                <p>temp</p>
+                                <p>forecast/icon</p>
+                            </article>
+                            <article class="is-child box forecast">
+                                <h3>day</h3>
+                                <p>temp</p>
+                                <p>forecast/icon</p>
+                            </article>
+                            <article class="is-child box forecast">
+                                <h3>day</h3>
+                                <p>temp</p>
+                                <p>forecast/icon</p>
+                            </article>
+                            
+
+
+                        </div>
+                    </article>
+
                 </div>
 
-                <div class="control">
-                    <button class="button" id="submitBtn">Search</button>
-                </div>
-                <article class="tile is-child box mapBox">
-                    <div id="map"></div>
-                    <figure class="image is-1by-1">
+            </div>
 
-                    </figure>
-                </article>
-            </article>
         </div>
 
-        <!-- Wide Tile -->
-        <div class="tile is-parent is-8 ">
-            <article class="tile is-child box main-content">
-                <article class="tile is-child">
-                    <p class="title" id="mainTitle">Trail Name</p>
-                    <p class="subtitle" id="mainLocation">Location</p>
-                    <div class="content">
-                        <!-- Content -->
-                        <span class="mainInfo" id="mainInfo"></span>
-                        <img src="" id="mainIMG" style="float: left;" alt="">
-                    </div>
-                    <div class="content" id="mainDiff"></div>
-                    <div class="content" id="mainLength"></div>
-                    <div class="content" id="mainStars"></div>
-                </article>
-            </article>
-        </div>
     </div>
+
+
+
 
 
 
