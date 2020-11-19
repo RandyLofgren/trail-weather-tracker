@@ -183,10 +183,9 @@ function fiveCityInfo(lat, long) {
           console.log(currentDay)
           fiveDayDiv = $("<div>");
           p = $("<p>");
-          p.text(moment.unix(currentDay.dt).format("L"));
-          fiveDayDiv.addClass("col");
-          fiveDayDiv.addClass("five-day");
-          fiveDayDiv.addClass("rounded");
+          p.text(moment.unix(currentDay.dt).format("L"));   
+          fiveDayDiv.addClass("five-day");   
+          fiveDayDiv.addClass("box");
           fiveDayDiv.append(p);
           $("#fiveDayCast").append(fiveDayDiv);
           cloudImage = $("<img>")
