@@ -3,6 +3,9 @@
 cfd3ce
 c6b497 */
 
+body {
+    margin: 0 2% 0 2%;
+}
 
 .body{
     background-color: 	hsl(204, 86%, 53%);
@@ -32,7 +35,6 @@ c6b497 */
     background-color: #c6b497;
     color: white;
     height: 40px;
-    
 }
 
 .p{
@@ -86,7 +88,15 @@ c6b497 */
     text-align: center;
 }
 
-.trailList{
+.trailList1{
     margin:20px;
     padding: 20px;
+}
+.trailList2 {
+    margin: 20px;
+    padding: 20px;
+}
+
+article .trail {
+    margin: 5px;
 }
