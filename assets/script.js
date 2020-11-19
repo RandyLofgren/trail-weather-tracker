@@ -1,5 +1,4 @@
 var APIkey = "200975281-2d283bf1ff307c50113654f42a31551f";
-// var hikingURL = "https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + long + "&maxDistance=30&key=200975281-2d283bf1ff307c50113654f42a31551f";
 var state = $("#state").val();
 var city = $("#city").val();
 var currentResults = {};
@@ -11,7 +10,6 @@ function init() {
     if (currentResults.trails.length) {
         console.log(currentResults);
         loadTrails();
-
     }
 
     if (!state) {
@@ -22,9 +20,6 @@ function init() {
         city = "Charlotte";
     }
 }
-
-
-
 
 
 //  need to set the id to an HTML
@@ -38,6 +33,7 @@ function mainTrail(selected) {
     $("#mainLength").text("Trail Distance: " + currentResults.trails[selected].length + " Miles");
     $("#mainStars").text("Trail Rating: " + currentResults.trails[selected].stars + " Out of 5");
     loadMap(currentResults.trails[selected].latitude, currentResults.trails[selected].longitude);
+    fiveCityInfo(currentResults.trails[selected].latitude, currentResults.trails[selected].longitude)
 }
 
 function loadMap(lat, long) {
@@ -48,11 +44,6 @@ function loadMap(lat, long) {
         center: [long, lat],
         zoom: 12
     });
-
-    var marker = new mapboxgl.Marker()
-        .setLngLat([long, lat])
-        .addTo(map);
-
 }
 
 
@@ -60,6 +51,7 @@ var submit = $("#submitBtn")
 
 $("#submitBtn").on("click", function (event) {
     event.preventDefault();
+
 
     city = $("#city").val();
 
@@ -74,18 +66,8 @@ $("#submitBtn").on("click", function (event) {
         let lat = weather.coord.lat;
         let long = weather.coord.lon;
 
-        //loadMap(lat, long)
-
-
-        // var el = document.createElement('div');
-        // el.style.backgroundImage = 'url(https://placekitten.com/g/40/40/)';
-        // el.style.width = 40 + 'px';
-        // el.style.height = 40 + 'px';
-
-
-
-
         trailSearch(lat, long);
+        fiveCityInfo(lat, long)
     })
 })
 function trailSearch(lat, long) {
@@ -101,6 +83,7 @@ function trailSearch(lat, long) {
         localStorage.setItem("trails", JSON.stringify(currentResults));
         // console.log(currentResults)
         loadTrails();
+
     })
 
 };
@@ -110,11 +93,6 @@ function loadTrails() {
         return false
     }
     mainTrail(0);
-    // var nameResp = response.trails[1].name;
-    // var infoResp = response.trails[1].summary;
-    // // $("#name" + i).text(nameResp);
-    // $("#info1").text(infoResp);
-    // $("#name1").text(nameResp);
 
     $(".trailList1").empty()
     $(".trailList2").empty()
@@ -158,43 +136,71 @@ $(document).on("click", ".trail", function () {
     console.log("here")
 })
 
+function fiveCityInfo(lat, long) {
+    $("#fiveDayCast").empty();
+
+
+    var APIKey = "3047b4fdf5e4cef615044702d2f6aa10";
+    var fiveURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + long + "&units=imperial&appid=" + APIKey
+
+
+    // Creates AJAX call for the specific city button being clicked
+    $.ajax({
+        url: fiveURL,
+        method: "GET"
+    }).then(function (fiveresponse) {
+        console.log(fiveURL)
+        console.log("Help")
+        console.log(fiveresponse)
+        results = fiveresponse.list
 
 
 
-
-
-
-
-// function handleKitten(e) {
-//     e.target.style.backgroundImage = 'url(http://placekitten.com/g/50/50)';
-//     e.stopPropagation();
-// }
+        for (var i = 0; i < results.length; i++) {
+            if (fiveresponse.list[i].dt_txt.split(" ")[1] === "15:00:00") {
+                var currentDay = results[i]
+                console.log(currentDay)
+                fiveDayDiv = $("<div>");
+                p = $("<p>");
+                p.text(moment.unix(currentDay.dt).format("L"));
+                fiveDayDiv.addClass("five-day");
+                fiveDayDiv.addClass("box");
+                fiveDayDiv.append(p);
+                $("#fiveDayCast").append(fiveDayDiv);
+                cloudImage = $("<img>")
+                cloudImage.attr("src", "http://openweathermap.org/img/wn/" + currentDay.weather[0].icon + ".png");
+                fiveDayDiv.append(cloudImage)
+                ptemp = $("<h6>")
+                ptemp.text("Temp: " + results[i].main.temp + "\u00B0F");
+                fiveDayDiv.append(ptemp);
+                phum = $("<h5>");
+                phum.text("Humidity: " + results[i].main.humidity + "%");
+                fiveDayDiv.append(phum);
+            }
+        }
+    });
+}
 
 function handleMapClick(e) {
     console.log('handleMapClick', e);
     map.off('click', handleMapClick.bind(this));
 }
 
-// var map = new mapboxgl.Map({
-//     container: 'map',
-//     style: 'mapbox://styles/mapbox/streets-v9',
-//     center: [lat, long],
-//     zoom: 5
-// });
 
-// var el = document.createElement('div');
-// el.style.backgroundImage = 'url(https://placekitten.com/g/40/40/)';
-// el.style.width = 40 + 'px';
-// el.style.height = 40 + 'px';
+function init() {
+    if (localStorage.getItem("trails")) {
+        currentResults = JSON.parse(localStorage.getItem("trails"));
+        var latLong = JSON.parse(localStorage.getItem("trailLatLong"));
+        loadTrails()
+        loadMap(latLong[0], latLong[1])
+    }
+    if (!state) {
+        state = "NorthCarolina"
+    }
+    if (!city) {
+        city = "Charlotte"
+    }
 
+}
 
-
-// new mapboxgl.Marker(el)
-//     .setLngLat([lat, long])
-//     .addTo(map);
-
-// map.on('click', handleMapClick.bind(el));
-
-
-// el.addEventListener('click', handleKitten, false);
 init()
