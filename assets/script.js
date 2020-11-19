@@ -11,7 +11,7 @@ function init() {
     if (currentResults.trails.length) {
         console.log(currentResults);
         loadTrails();
-
+     
     }
 
     if (!state) {
@@ -38,6 +38,7 @@ function mainTrail(selected) {
     $("#mainLength").text("Trail Distance: " + currentResults.trails[selected].length + " Miles");
     $("#mainStars").text("Trail Rating: " + currentResults.trails[selected].stars + " Out of 5");
     loadMap(currentResults.trails[selected].latitude, currentResults.trails[selected].longitude);
+    fiveCityInfo(currentResults.trails[selected].latitude,currentResults.trails[selected].longitude)
 }
 
 function loadMap(lat, long) {
@@ -48,11 +49,6 @@ function loadMap(lat, long) {
         center: [long, lat],
         zoom: 12
     });
-
-    var marker = new mapboxgl.Marker()
-        .setLngLat([long, lat])
-        .addTo(map);
-
 }
 
 
@@ -60,6 +56,7 @@ var submit = $("#submitBtn")
 
 $("#submitBtn").on("click", function (event) {
     event.preventDefault();
+    
 
     city = $("#city").val();
 
@@ -86,6 +83,7 @@ $("#submitBtn").on("click", function (event) {
 
 
         trailSearch(lat, long);
+        fiveCityInfo(lat,long)
     })
 })
 function trailSearch(lat, long) {
@@ -101,6 +99,7 @@ function trailSearch(lat, long) {
         localStorage.setItem("trails", JSON.stringify(currentResults));
         // console.log(currentResults)
         loadTrails();
+        
     })
 
 };
@@ -158,7 +157,61 @@ $(document).on("click", ".trail", function () {
     console.log("here")
 })
 
-
+function fiveCityInfo(lat, long) {
+    $("#fiveDayCast").empty();
+  
+    
+    var APIKey = "3047b4fdf5e4cef615044702d2f6aa10";
+    var fiveURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + long +"&appid=" + APIKey
+  
+  
+    // Creates AJAX call for the specific city button being clicked
+    $.ajax({
+      url: fiveURL,
+      method: "GET"
+    }).then(function (fiveresponse) {
+        console.log(fiveURL)
+        console.log("Help")
+      console.log(fiveresponse)
+      results = fiveresponse.list
+   
+  
+  
+      for (var i = 0; i < results.length; i++) {
+        if (fiveresponse.list[i].dt_txt.split(" ")[1] === "15:00:00") {
+          var currentDay = results[i]
+          console.log(currentDay)
+          fiveDayDiv = $("<div>");
+          p = $("<p>");
+          p.text(moment.unix(currentDay.dt).format("L"));
+          fiveDayDiv.addClass("col");
+          fiveDayDiv.addClass("five-day");
+          fiveDayDiv.addClass("rounded");
+          fiveDayDiv.append(p);
+          $("#fiveDayCast").append(fiveDayDiv);
+          cloudImage = $("<img>")
+          cloudImage.attr("src", "http://openweathermap.org/img/wn/"+currentDay.weather[0].icon+".png");  
+          fiveDayDiv.append(cloudImage)
+          ptemp = $("<h6>")
+          ptemp.text("Temp: " + results[i].main.temp + "\u00B0F");
+          fiveDayDiv.append(ptemp);
+          phum = $("<h5>");
+          phum.text("Humidity: " + results[i].main.humidity + "%");
+          fiveDayDiv.append(phum);
+        }
+  
+  
+      }
+  
+  
+  
+  
+  
+  
+    });
+  
+  }
+  
 
 
 
