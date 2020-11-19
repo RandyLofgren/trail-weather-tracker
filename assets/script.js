@@ -11,7 +11,7 @@ function init() {
     if (currentResults.trails.length) {
         console.log(currentResults);
         loadTrails();
-     
+
     }
 
     if (!state) {
@@ -48,6 +48,11 @@ function loadMap(lat, long) {
         center: [long, lat],
         zoom: 12
     });
+
+    var marker = new mapboxgl.Marker()
+        .setLngLat([long, lat])
+        .addTo(map);
+
 }
 
 

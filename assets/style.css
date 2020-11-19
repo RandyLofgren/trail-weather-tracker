@@ -3,6 +3,9 @@
 cfd3ce
 c6b497 */
 
+body {
+    margin: 0 2% 0 2%;
+}
 
 .body{
     background-color: 	hsl(204, 86%, 53%);
@@ -39,8 +42,11 @@ c6b497 */
     background-color: #c6b497;
     color: white;
     height: 40px;
+<<<<<<< HEAD
     font-family: 'Roboto', sans-serif;
     
+=======
+>>>>>>> 6b6a5a004738599179542d1377162c193e2e82bf
 }
 
 .p{
@@ -99,10 +105,11 @@ c6b497 */
     font-family: 'Roboto', sans-serif;
 }
 
-.trailList{
+.trailList1{
     margin:20px;
     padding: 20px;
 }
+<<<<<<< HEAD
 #mainTitle{
     font-family: Domine;
     font-size: 35px;
@@ -124,3 +131,13 @@ c6b497 */
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
 }
+=======
+.trailList2 {
+    margin: 20px;
+    padding: 20px;
+}
+
+article .trail {
+    margin: 5px;
+}
+>>>>>>> 6b6a5a004738599179542d1377162c193e2e82bf
