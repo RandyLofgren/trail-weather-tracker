@@ -11,7 +11,7 @@ function init() {
     if (currentResults.trails.length) {
         console.log(currentResults);
         loadTrails();
-     
+
     }
 
     if (!state) {
