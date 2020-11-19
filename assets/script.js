@@ -52,10 +52,8 @@ var submit = $("#submitBtn")
 $("#submitBtn").on("click", function (event) {
     event.preventDefault();
 
-
     city = $("#city").val();
 
-    // https://cors-anywhere.herokuapp.com/https://www.hikingproject.com/data/get-trails?lat=35.23&lon=-80.84&maxDistance=10&key=200975281-2d283bf1ff307c50113654f42a31551f
     $.ajax({
         url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + state + "&appid=93048a14e536394603a5f5173a41d761",
         method: "GET"
