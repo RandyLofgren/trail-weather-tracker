@@ -17,17 +17,24 @@ body {
     margin-bottom: 20px;
     background-color: #34626c;
     color: white;
+    font-family: 'Roboto', sans-serif;
 }
 .title{
     color: white;
+    font-family: 'Domine', serif;
+    font-size: 45px;
 }
 
 .subtitle{
     color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
 }
 
 .content{
     color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
 }
 
 
@@ -35,10 +42,16 @@ body {
     background-color: #c6b497;
     color: white;
     height: 40px;
+<<<<<<< HEAD
+    font-family: 'Roboto', sans-serif;
+    
+=======
+>>>>>>> 6b6a5a004738599179542d1377162c193e2e82bf
 }
 
 .p{
     color: white;
+    font-family: 'Roboto', sans-serif;
 }
 
 .img {
@@ -66,6 +79,8 @@ body {
 
 .difColor{
     color: #34626c;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .button{
@@ -73,6 +88,7 @@ body {
     color: white;
     border: none;
     margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
 }
 #map {
     height: 350px;
@@ -86,12 +102,36 @@ body {
 
 .trailCSS{
     text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 .trailList1{
     margin:20px;
     padding: 20px;
 }
+<<<<<<< HEAD
+#mainTitle{
+    font-family: Domine;
+    font-size: 35px;
+}
+#mainLocation{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-style: italic;
+}
+#mainInfo{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+#mainLength{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+#mainStars{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+=======
 .trailList2 {
     margin: 20px;
     padding: 20px;
@@ -100,3 +140,4 @@ body {
 article .trail {
     margin: 5px;
 }
+>>>>>>> 6b6a5a004738599179542d1377162c193e2e82bf
