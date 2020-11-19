@@ -169,7 +169,7 @@ function fiveCityInfo(lat, long) {
                 fiveDayDiv.append(p);
                 $("#fiveDayCast").append(fiveDayDiv);
                 cloudImage = $("<img>")
-                cloudImage.attr("src", "http://openweathermap.org/img/wn/" + currentDay.weather[0].icon + ".png");
+                cloudImage.attr("src", "https://openweathermap.org/img/wn/" + currentDay.weather[0].icon + ".png");
                 fiveDayDiv.append(cloudImage)
                 ptemp = $("<h6>")
                 ptemp.text("Temp: " + results[i].main.temp + "\u00B0F");
