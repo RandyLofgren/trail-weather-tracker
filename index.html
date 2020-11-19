@@ -17,11 +17,8 @@
     <title>Trail Weather Tracker </title>
 </head>
 
-
-<!-- Header -->
-
+<!-- The header with Website tile -->
 <body>
-    <!-- Header with  -->
     <section class="hero">
         <div class="hero-body">
             <div class="container">
@@ -36,7 +33,7 @@
         </div>
     </section>
 
-    <!--  -->
+<!-- main are with search bar, trail info, and 5 day forecast -->
     <div class="tile is-ancestor">
 
         <div class="tile is-vertical">
@@ -70,6 +67,7 @@
                         <div class="control">
                             <button class="button" id="submitBtn">Search</button>
                         </div>
+                        <!-- Map based on Searched trail -->
                         <article class="tile is-child box mapBox">
                             <div id="map"></div>
                             <figure class="image is-1by-1">
@@ -81,7 +79,6 @@
                 </div>
 
                 <div class="tile is-parent is-vertical is-8">
-
 
                     <article class="tile is-child box main-content">
 
@@ -97,9 +94,7 @@
                         <div class="content" id="mainStars"></div>
 
                     </article>
-
-
-
+                    <!-- 5 day forecast -->
                     <article class="tile is-child box main-content">
 
                         <p class="title" id="mainTitle">Five Day Forecast</p>
@@ -117,11 +112,7 @@
     </div>
 
 
-
-
-
-
-    <!-- Side Column -->
+    <!-- List if trails in a 30m radius with links embedded -->
     <div class="tile is-ancestor">
 
         <div class="tile is-parent trailList1 trailCSS mx-2">
@@ -137,7 +128,7 @@
     </div>
 
     
-
+<!-- Footer with creator info -->
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
