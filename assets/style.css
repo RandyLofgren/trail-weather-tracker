@@ -132,7 +132,13 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 1183px) {
+    .box {
+      width: fit-content;
+    }
+}
+
+@media only screen and (max-width: 768px) {
     #mainIMG {
         height: auto;
         margin: 10px;
