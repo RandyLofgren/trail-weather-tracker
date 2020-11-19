@@ -162,7 +162,7 @@ function fiveCityInfo(lat, long) {
   
     
     var APIKey = "3047b4fdf5e4cef615044702d2f6aa10";
-    var fiveURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + long +"&appid=" + APIKey
+    var fiveURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + long +"&units=imperial&appid=" + APIKey
   
   
     // Creates AJAX call for the specific city button being clicked
