@@ -103,13 +103,25 @@ body {
     background-color: #cfd3ce;
     margin-bottom: 24px;
     margin-left: 24px;
-}
 
+}
 
 .trailList1{
     margin:20px;
     padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }
+
+.fcHolder {
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+  overflow: scroll;
+}
+.fcHolder::-webkit-scrollbar {
+    display: none;
+  }
+
 #mainTitle{
     font-family: Domine;
     font-size: 35px;
@@ -132,15 +144,22 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-@media only screen and (max-width: 1183px) {
+/* @media only screen and (max-width: 1183px) {
     .box {
       width: fit-content;
     }
-}
+} */
 
 @media only screen and (max-width: 768px) {
     #mainIMG {
         height: auto;
         margin: 10px;
+
     }
+    .trailList1 {
+        display: block;
+    }
+    
 }
+
+
