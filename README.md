@@ -2,7 +2,7 @@
 
 _Let our App help you decide whether you should go for a hike!_
 
-## ## Link to Web App
+## Link to Web App
 [Trail Weather Tracker](https://randylofgren.github.io/trail-weather-tracker/)
 
 ## User Story
