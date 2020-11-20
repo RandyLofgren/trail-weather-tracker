@@ -167,21 +167,4 @@ function handleMapClick(e) {
     map.off('click', handleMapClick.bind(this));
 };
 
-
-function init() {
-    if (localStorage.getItem("trails")) {
-        currentResults = JSON.parse(localStorage.getItem("trails"));
-        var latLong = JSON.parse(localStorage.getItem("trailLatLong"));
-        loadTrails()
-        loadMap(latLong[0], latLong[1])
-    }
-    if (!state) {
-        state = "NorthCarolina"
-    }
-    if (!city) {
-        city = "Charlotte"
-    }
-
-}
-
 init()
