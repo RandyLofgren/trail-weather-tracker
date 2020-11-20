@@ -92,30 +92,32 @@ function loadTrails() {
     $(".trailList2").empty();
 
     for (var i = 0; i < currentResults.trails.length; i++) {
-        if (i <= 5) {
-            var article = $('<article id="trailOpt' + i + '" class="tile is-child box trail is-2">');
-            article.css("cursor", "pointer");
-            article.attr("data-trailNum", i);
-            var newP = $('<p class="subtitle difColor" id="name' + i + '">').text(currentResults.trails[i].name);
-            var content = $('<p class="content difColor">').text(currentResults.trails[i].summary);
-            var content = $('<img class="content">').attr("src", currentResults.trails[i].imgSqSmall);
-            article.append(newP, content);
-            $(".trailList1").append(article);
-        }
-        else if (i > 5) {
-            var article = $('<article id="trailOpt' + i + '" class="tile is-child box trail is-2">');
-            article.css("cursor", "pointer");
-            article.attr("data-trailNum", i);
-            var newP = $('<p class="subtitle difColor" id="name' + i + '">').text(currentResults.trails[i].name);
-            // <div class="content">
-
-            var content = $('<p class="content difColor">').text(currentResults.trails[i].summary);
-
-            var content = $('<img class="content">').attr("src", currentResults.trails[i].imgSqSmall);
-            article.append(newP, content);
-            $(".trailList2").append(article)
-        }
-
+        // if (i <= 5) {
+        var article = $('<article id="trailOpt' + i + '" class="tile is-parent is-2">');
+        var box = $("<div>");
+        box.addClass("tile is-child box trail");
+        article.css("cursor", "pointer");
+        box.attr("data-trailNum", i);
+        var newP = $('<p class="subtitle difColor" id="name' + i + '">').text(currentResults.trails[i].name);
+        var content = $('<p class="content difColor">').text(currentResults.trails[i].summary);
+        var content = $('<img class="content">').attr("src", currentResults.trails[i].imgSqSmall);
+        box.append(newP, content);
+        article.append(box);
+        $(".trailList1").append(article);
+        // }
+        // else if (i > 5) {
+        //     var article = $('<article id="trailOpt' + i + '" class="tile is-parent is-2">');
+        //     var box = $("<div>");
+        //     box.addClass("tile is-child box trail");
+        //     article.css("cursor", "pointer");
+        //     article.attr("data-trailNum", i);
+        //     var newP = $('<p class="subtitle difColor" id="name' + i + '">').text(currentResults.trails[i].name);
+        //     var content = $('<p class="content difColor">').text(currentResults.trails[i].summary);
+        //     var content = $('<img class="content">').attr("src", currentResults.trails[i].imgSqSmall);
+        //     box.append(newP, content);
+        //     article.append(box);
+        //     $(".trailList2").append(article);
+        // }
     }
 };
 
@@ -141,13 +143,13 @@ function fiveCityInfo(lat, long) {
         for (var i = 0; i < results.length; i++) {
             if (fiveresponse.list[i].dt_txt.split(" ")[1] === "15:00:00") {
                 var currentDay = results[i];
-                fiveDayDiv = $("<div>");
+                var fiveDayDiv = $("<div>");
+                var box = $("<div>");
                 p = $("<p>");
                 p.text(moment.unix(currentDay.dt).format("L"));
-                fiveDayDiv.addClass("five-day");
-                fiveDayDiv.addClass("box");
+                fiveDayDiv.addClass("box five-day tile is-child");
+                box.addClass("tile is-parent");
                 fiveDayDiv.append(p);
-                $("#fiveDayCast").append(fiveDayDiv);
                 cloudImage = $("<img>")
                 cloudImage.attr("src", "https://openweathermap.org/img/wn/" + currentDay.weather[0].icon + ".png");
                 fiveDayDiv.append(cloudImage);
@@ -157,6 +159,8 @@ function fiveCityInfo(lat, long) {
                 phum = $("<h5>");
                 phum.text("Humidity: " + results[i].main.humidity + "%");
                 fiveDayDiv.append(phum);
+                box.append(fiveDayDiv);
+                $("#fiveDayCast").append(box);
             }
         }
     });
